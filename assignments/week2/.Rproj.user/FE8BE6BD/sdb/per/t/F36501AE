@@ -1,0 +1,16 @@
+{
+    "contents" : "pollutantmean <- function(directory, pollutant, id = 1:332) {\n  ## a vector to concatenate the total results\n  total = c()\n  \n  ## iterate over id's\n  for( i in id ){\n    ## build the file name to be laoded (CSV file) and read it\n    filename = paste( directory, \"/\", formatC( i, digits=2, flag=0), \".csv\", sep=\"\" )\n    csv = read.csv( filename )\n    \n    ## get the requested column and remove NA values\n    column = csv[pollutant]\n    clean = column[!is.na(column)]\n    \n    # concatenate this CSV values to the totals vector\n    total = c(total, clean)\n  }\n  \n  ## compute the mean value, and round it to 3 digits (to make it match the expected results example)\n  mean = mean(total)\n  round( mean, digits=3 )\n}",
+    "created" : 1410737179259.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2985391019",
+    "id" : "F36501AE",
+    "lastKnownWriteTime" : 1410776574,
+    "path" : "~/Documents/work/coursera/coursera_r_programming/assignments/week2/pollutantmean.R",
+    "project_path" : "pollutantmean.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
